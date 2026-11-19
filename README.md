@@ -29,28 +29,6 @@
 
 Маршрутизация опирается на общий контракт `IRecipient`. Поведение получателей расширяется посредством композиции и обёрток. Архиваторы, форматтеры и системы оповещений подключаются через интерфейсы.
 
-```mermaid
-flowchart TD
-    M[Message] --> T[Topic]
-    T --> R[IRecipient]
-    R -.-> U[UserRecipient]
-    R -.-> G[GroupRecipient]
-    R -.-> A[ArchiverRecipient]
-    R -.-> P[ImportanceProxy]
-    R -.-> L[LoggedRecipient]
-    R -.-> N[AlertRecipient]
-    G -->|contains| R
-    P -->|wraps| R
-    L -->|wraps| R
-    N -->|wraps| R
-    A --> S[IMessageArchiver]
-    N --> I[IAlertSystem]
-    classDef main fill:#963B67,color:#fff,stroke:#963B67
-    classDef soft fill:#F9DFE9,color:#672344,stroke:#D77EA5
-    class M,T,R main
-    class U,G,A,P,L,N,S,I soft
-```
-
 ## ✧ Паттерны проектирования
 
 | Паттерн | Применение |
